@@ -5,16 +5,16 @@ import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.development.testproject.model.EmployeesData
-import com.development.testproject.model.EmployeesResponse
 import com.development.testproject.adapter.EmployeesAdapter
 import com.development.testproject.databinding.ActivityMainBinding
 import com.development.testproject.interfaces.RecyclerViewItemOnClickListener
+import com.development.testproject.model.EmployeeData
+import com.development.testproject.model.EmployeeResponse
 
 class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
-    private val employeeList = ArrayList<EmployeesData>()
+    private val employeeList = ArrayList<EmployeeData>()
     private lateinit var employeesAdapter : EmployeesAdapter
     private var employeeIdList = ArrayList<String>()
 
@@ -30,17 +30,21 @@ class MainActivity : BaseActivity() {
             binding.adapter = employeesAdapter
         }
 
+        getEmployees()
+        observeEmployeeList()
+    }
+
+    private fun getEmployees() {
         if(checkInternetConnection()) {
             viewModel.getEmployees()
         }
         else {
             showToast("No Internet Connection")
         }
-        observeEmployeeList()
     }
 
     private fun observeEmployeeList(){
-        val observer = Observer<EmployeesResponse>{
+        val observer = Observer<EmployeeResponse>{
             if(it!=null) {
                 employeeList.addAll(it.data)
                 employeesAdapter.notifyDataSetChanged()

@@ -2,7 +2,7 @@ package com.development.testproject.model
 
 import com.google.gson.annotations.SerializedName
 
-data class EmployeesData(
+data class EmployeeData(
     @SerializedName("id") val id : String,
     @SerializedName("employee_name") val employee_name : String,
     @SerializedName("employee_salary") val employee_salary : String,

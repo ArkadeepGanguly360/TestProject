@@ -5,14 +5,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.development.testproject.model.EmployeesData
 import com.development.testproject.R
 import com.development.testproject.databinding.EmployeeListItemBinding
 import com.development.testproject.interfaces.RecyclerViewItemOnClickListener
+import com.development.testproject.model.EmployeeData
 
 class EmployeesAdapter(
     private val context: Context,
-    private val list: ArrayList<EmployeesData>,
+    private val list: ArrayList<EmployeeData>,
     private val listener: RecyclerViewItemOnClickListener
 ) :
     RecyclerView.Adapter<EmployeesAdapter.ViewHolder>() {

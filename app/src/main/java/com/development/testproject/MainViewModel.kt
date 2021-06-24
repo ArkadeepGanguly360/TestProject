@@ -2,8 +2,8 @@ package com.development.testproject
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.development.testproject.model.EmployeesResponse
 import com.development.testproject.interfaces.WebInterface
+import com.development.testproject.model.EmployeeResponse
 import com.development.testproject.restService.AllWebServiceCall
 import com.google.gson.Gson
 import org.json.JSONException
@@ -12,14 +12,14 @@ import org.json.JSONObject
 class MainViewModel : ViewModel(), WebInterface {
     private lateinit var baseActivity: BaseActivity
     private lateinit var mainActivity: MainActivity
-    private var employeeMutableLiveData = MutableLiveData<EmployeesResponse>()
+    private var employeeMutableLiveData = MutableLiveData<EmployeeResponse>()
 
     fun setActivities(baseActivity: BaseActivity, mainActivity: MainActivity) {
         this.baseActivity = baseActivity
         this.mainActivity = mainActivity
     }
 
-    fun observeEmployeeList(): MutableLiveData<EmployeesResponse> {
+    fun observeEmployeeList(): MutableLiveData<EmployeeResponse> {
         return employeeMutableLiveData;
     }
 
@@ -31,7 +31,7 @@ class MainViewModel : ViewModel(), WebInterface {
 
     override fun <E> resultSuccess(t: E, method_name: String?) {
         try {
-            val response = Gson().fromJson(t.toString(), EmployeesResponse::class.java)
+            val response = Gson().fromJson(t.toString(), EmployeeResponse::class.java)
             employeeMutableLiveData.postValue(response)
         } catch (e: JSONException) {
             e.printStackTrace()

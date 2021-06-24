@@ -2,8 +2,8 @@ package com.development.testproject.model
 
 import com.google.gson.annotations.SerializedName
 
-data class EmployeesResponse(
+data class EmployeeResponse(
     @SerializedName("status") val status : String,
-    @SerializedName("data") val data : List<EmployeesData>,
+    @SerializedName("data") val data : List<EmployeeData>,
     @SerializedName("message") val message : String
 )
