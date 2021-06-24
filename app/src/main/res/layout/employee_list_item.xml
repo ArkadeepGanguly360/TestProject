@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="name"
+            type="String" />
+
+        <variable
+            name="salary"
+            type="String" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/dimens_20dp"
+        android:layout_margin="@dimen/dimens_5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimens_10dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/employee_name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimens_16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_employee_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimens_10dp"
+                android:text="@{name}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimens_16sp"
+                app:layout_constraintStart_toEndOf="@+id/tv"
+                app:layout_constraintTop_toTopOf="@+id/tv"
+                app:layout_constraintEnd_toStartOf="@+id/cb_employee"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimens_10dp"
+                android:text="@string/employee_salary"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimens_16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/tv"
+                app:layout_constraintTop_toBottomOf="@+id/tv" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_employee_salary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{salary}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dimens_16sp"
+                app:layout_constraintStart_toStartOf="@+id/tv_employee_name"
+                app:layout_constraintTop_toTopOf="@+id/tv1"
+                app:layout_constraintEnd_toStartOf="@+id/cb_employee"/>
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/cb_employee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

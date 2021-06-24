@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TestProject</string>
+    <string name="employee_name">Employee Name :</string>
+    <string name="employee_salary">Employee Salary :</string>
+</resources>
