@@ -51,10 +51,10 @@ class EmployeesAdapter(
 
         holder.rowBinding.cbEmployee.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
-                employeeIdList.add(list[position].id);
+                employeeIdList.add(list[position].id)
                 updateEmployeeIdList()
             } else {
-                employeeIdList.remove(list[position].id);
+                employeeIdList.remove(list[position].id)
                 updateEmployeeIdList()
             }
         }
