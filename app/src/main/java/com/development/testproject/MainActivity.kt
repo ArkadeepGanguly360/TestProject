@@ -23,7 +23,7 @@ class MainActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.mainActivity = this
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        viewModel.setActivities(this,this)
+        viewModel.setActivities(this, this)
 
         initAdapter {
             employeesAdapter = it
@@ -32,6 +32,7 @@ class MainActivity : BaseActivity() {
 
         getEmployees()
         observeEmployeeList()
+
     }
 
     private fun getEmployees() {
@@ -50,7 +51,7 @@ class MainActivity : BaseActivity() {
                 employeesAdapter.notifyDataSetChanged()
             }
         }
-        viewModel.observeEmployeeList()?.observe(this,observer)
+        viewModel.observeEmployeeList().observe(this,observer)
     }
 
     private fun initAdapter(listener: (EmployeesAdapter) -> Unit) {
